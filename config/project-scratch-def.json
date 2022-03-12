@@ -1,0 +1,30 @@
+{
+  "orgName": "Demo company",
+  "edition": "Enterprise",
+  "features": [
+    "Knowledge",
+    "ServiceCloud",
+    "Entitlements",
+    "AuthorApex",
+    "Communities",
+    "DefaultWorkflowUser",
+    "MarketingUser"
+  ],
+  "settings": {
+    "lightningExperienceSettings": {
+      "enableS1DesktopEnabled": true
+    },
+    "securitySettings": {
+      "passwordPolicies": {
+        "enableSetPasswordInApi": true
+      }
+    },
+    "mobileSettings": {
+      "enableS1EncryptedStoragePref2": false
+    },
+    "communitiesSettings": {
+      "enableNetworksEnabled": true
+    }
+  }
+}
+
