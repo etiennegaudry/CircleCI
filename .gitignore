@@ -38,3 +38,4 @@ ehthumbs.db
 $RECYCLE.BIN/
 
 server.crt
+cert_ext.cnf

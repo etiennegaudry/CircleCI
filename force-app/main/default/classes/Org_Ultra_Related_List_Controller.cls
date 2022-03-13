@@ -1,10 +1,21 @@
+/**
+ * @description       : 
+ * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+ * @group             : 
+ * @last modified on  : 03-13-2022
+ * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+**/
 public with sharing class Org_Ultra_Related_List_Controller {
-    private static Org_DataTable_Column_Wrapper actionsColumn = new Org_DataTable_Column_Wrapper();
+  private static Org_DataTable_Column_Wrapper actionsColumn = new Org_DataTable_Column_Wrapper();
 
-    @AuraEnabled
-    public static List<SObject> getTableDataController(Id recordId, String relatedObjectField, String objectType){
-        List<SObject> tableData = new List<SObject>();
-        /*try {
+  @AuraEnabled
+  public static List<SObject> getTableDataController(
+    Id recordId,
+    String relatedObjectField,
+    String objectType
+  ) {
+    List<SObject> tableData = new List<SObject>();
+    /*try {
             String query = buildObjectQuery(objectType, relatedObjectField);
             System.debug('This was the query ::: ' + query);
             tableData = database.query(query);
@@ -12,32 +23,37 @@ public with sharing class Org_Ultra_Related_List_Controller {
             throw new AuraHandledException(e.getMessage());
         }*/
 
-        return tableData;
-    }
+    return tableData;
+  }
 
-    @AuraEnabled
-    public static List<UE_Related_List_Page_Size__mdt> getTableSizeOptionsController(){
-        List<UE_Related_List_Page_Size__mdt> columnSizeOptions = new List<UE_Related_List_Page_Size__mdt>();
-        //columnSizeOptions = [SELECT Id, Label, Page_Size__c FROM UE_Related_List_Page_Size__mdt ORDER BY Page_Size__c LIMIT 1000];
-        return columnSizeOptions;
-    }
-    
-    @AuraEnabled
-    public static List<Org_DataTable_Column_Wrapper> getDataTableColumnsController(String objectType){
-        List<Org_DataTable_Column_Wrapper> columnData = new List<Org_DataTable_Column_Wrapper>();
-        /*List<UE_Related_List_Column__mdt> columnMetadata = getRelatedListColumnMetadata(objectType);
+  @AuraEnabled
+  public static List<UE_Related_List_Page_Size__mdt> getTableSizeOptionsController() {
+    List<UE_Related_List_Page_Size__mdt> columnSizeOptions = new List<UE_Related_List_Page_Size__mdt>();
+    //columnSizeOptions = [SELECT Id, Label, Page_Size__c FROM UE_Related_List_Page_Size__mdt ORDER BY Page_Size__c LIMIT 1000];
+    return columnSizeOptions;
+  }
+
+  @AuraEnabled
+  public static List<Org_DataTable_Column_Wrapper> getDataTableColumnsController(
+    String objectType
+  ) {
+    List<Org_DataTable_Column_Wrapper> columnData = new List<Org_DataTable_Column_Wrapper>();
+    /*List<UE_Related_List_Column__mdt> columnMetadata = getRelatedListColumnMetadata(objectType);
         
         if(!columnMetadata.isEmpty()){
             columnData = buildColumnData(columnMetadata);
         }*/
 
-        return columnData;
-    }
+    return columnData;
+  }
 
-    @AuraEnabled
-    public static String saveTableDataToServer(String objectType, String tableDataJSON){
-        String returnMsg = 'The update failed';
-        /*List<Object> objectsReceived = (List<Object>)JSON.deserializeUntyped(tableDataJSON);
+  @AuraEnabled
+  public static String saveTableDataToServer(
+    String objectType,
+    String tableDataJSON
+  ) {
+    String returnMsg = 'The update failed';
+    /*List<Object> objectsReceived = (List<Object>)JSON.deserializeUntyped(tableDataJSON);
         List<SObject> convertedSObjects = new List<SObject>();
 
         for(Object val: objectsReceived){
@@ -88,10 +104,10 @@ public with sharing class Org_Ultra_Related_List_Controller {
         }
 
         System.debug('This is the return message ::: ' + returnMsg);*/
-        return returnMsg;
-    }
+    return returnMsg;
+  }
 
-    /*private static List<UE_Related_List_Column__mdt> getRelatedListColumnMetadata(String objectType){
+  /*private static List<UE_Related_List_Column__mdt> getRelatedListColumnMetadata(String objectType){
         List<UE_Related_List_Column__mdt> dataColumns = new List<UE_Related_List_Column__mdt>();
         dataColumns = [SELECT Id, Label, Column_Order__c, Allow_Editing__c, Allow_Sorting__c, URL_Id__c, 
                        Allow_Text_Wrap__c, Column_Type__c, Field_Name__c, Initial_Column_Width__c, Object_Developer_Name__c
